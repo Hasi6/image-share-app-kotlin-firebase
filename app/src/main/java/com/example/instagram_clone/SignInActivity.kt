@@ -23,7 +23,18 @@ class SignInActivity : AppCompatActivity() {
 
 //    Sign in clicked
     fun signInClicked(view: View){
+    val userEmail = email.text.toString()
+    val userPassword = password.text.toString()
 
+    mAuth?.signInWithEmailAndPassword(userEmail, userPassword)?.addOnCompleteListener{ task ->
+        if(task.isSuccessful){
+            Toast.makeText(this, "User LoggedIn", Toast.LENGTH_LONG).show()
+        }
+    }?.addOnFailureListener { exception ->
+        if(exception !== null){
+            Toast.makeText(this, exception.localizedMessage, Toast.LENGTH_LONG).show()
+        }
+    }
     }
 
 //    Sign up Clicked
