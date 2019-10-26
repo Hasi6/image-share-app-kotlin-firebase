@@ -1,5 +1,6 @@
 package com.example.instagram_clone
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -15,10 +16,10 @@ class SignInActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
-
         mAuth = FirebaseAuth.getInstance()
-
         mAuthListner = FirebaseAuth.AuthStateListener {  }
+
+        println(mAuth?.currentUser)
     }
 
 //    Sign in clicked
@@ -28,7 +29,8 @@ class SignInActivity : AppCompatActivity() {
 
     mAuth?.signInWithEmailAndPassword(userEmail, userPassword)?.addOnCompleteListener{ task ->
         if(task.isSuccessful){
-            Toast.makeText(this, "User LoggedIn", Toast.LENGTH_LONG).show()
+            val intent = Intent(this, Feed::class.java)
+            startActivity(intent)
         }
     }?.addOnFailureListener { exception ->
         if(exception !== null){

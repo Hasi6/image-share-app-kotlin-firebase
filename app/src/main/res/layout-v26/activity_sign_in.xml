@@ -10,15 +10,16 @@
         android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:autofillHints="Email"
         android:ems="10"
         android:hint="@string/enter_email"
         android:inputType="textPersonName"
+        android:text="t@gmail.com"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.18"
-        android:autofillHints="Email" />
+        app:layout_constraintVertical_bias="0.18" />
 
     <EditText
         android:id="@+id/password"
@@ -27,6 +28,7 @@
         android:ems="10"
         android:hint="@string/password"
         android:inputType="textPassword"
+        android:text="asasasas"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
